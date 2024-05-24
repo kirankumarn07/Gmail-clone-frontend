@@ -73,7 +73,7 @@ function Login() {
             };
     
             try {
-                const response = await axios.post('https://gmail-clone-backend-4s35.onrender.com/users/login', userLoginDetails);
+                const response = await axios.post('https://gmail-clone-backend-4s35.onrender.com/api/users/login', userLoginDetails);
                console.log(response);
                 if (response.data) {
                     localStorage.setItem('token',response.data);
