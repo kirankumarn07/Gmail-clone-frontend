@@ -1,0 +1,22 @@
+.backgroundSignupImage{
+    background-image: url('../../assests/signup2.webp');
+    width: 100vw;
+    height: 100vh;
+    mask-repeat: no-repeat;
+    object-fit: inherit;
+}
+.mainSignupDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    padding: 20px;
+    background-color: azure;
+}
+
+@media (max-width:400px) {
+    .mainSignupDiv{
+        width: 90%;
+    }
+}
