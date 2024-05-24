@@ -6,12 +6,13 @@ import useApi from '../hooks/useApi';
 import { API_URLS } from '../services/api.urls';
 
 const dialogStyle = {
-    height: '90%',
+    height: '70vh',
     width: '80%',
     maxWidth: '100%',
-    maxHeight: '100%',
+    // maxHeight: '100%',
     boxShadow: 'none',
-    borderRadius: '10px 10px 0 0',
+    borderRadius: '10px 10px 10px 10px',
+    overflowX: "auto"
 }
 
 const Header = styled(Box)`
@@ -99,7 +100,7 @@ const ComposeMail = ({ open, setOpenDrawer }) => {
 
     const closeComposeMail = (e) => {
         e.preventDefault();
-
+        setOpenDrawer(false);
         const payload = {
             to : data.to,
             from : "kirankumar.naga7@gmail.com",
@@ -118,7 +119,7 @@ const ComposeMail = ({ open, setOpenDrawer }) => {
             setOpenDrawer(false);
             setData({});
         } else {
-
+            setOpenDrawer(true)
         }
     }
  const sentEmail =async()=>{
@@ -142,7 +143,7 @@ const ComposeMail = ({ open, setOpenDrawer }) => {
     // Call sendEmail function (replace with actual logic)
     console.log("Sending email:", data);
     // Reset email data and errors after sending
-    const response = await axios.post('http://localhost:5000/api/users/email', data);
+    const response = await axios.post('https://gmail-clone-backend-4s35.onrender.com/api/users/email', data);
     setData({
         to: '',
         subject: '',
@@ -166,7 +167,7 @@ const ComposeMail = ({ open, setOpenDrawer }) => {
             </RecipientWrapper>
             <TextField 
                 multiline
-                rows={20}
+                rows={9}
                 sx={{ '& .MuiOutlinedInput-notchedOutline': { border: 'none' } }}
                 name="body"
                 onChange={(e) => onValueChange(e)}

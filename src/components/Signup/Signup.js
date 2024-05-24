@@ -128,7 +128,7 @@ function Signup() {
             
             }
             try {
-                const response = await axios.post('http://localhost:5000/api/users/register', userSignupDetails);
+                const response = await axios.post('https://gmail-clone-backend-4s35.onrender.com/api/users/register', userSignupDetails);
                 
                 if (response.data.message === "User already exists") {
                     alert("Email address already exists");
@@ -200,7 +200,7 @@ function Signup() {
             };
     
             try {
-                const response = await axios.post('http://localhost:5000/api/users/login', userLoginDetails);
+                const response = await axios.post('https://gmail-clone-backend-4s35.onrender.com/api/users/login', userLoginDetails);
     
                 if (response.data.message === "Login Successful") {
                     alert("Login Successful");
