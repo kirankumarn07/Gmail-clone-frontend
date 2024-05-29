@@ -45,7 +45,7 @@ const Email = ({ email, setStarredEmail, selectedEmails, setSelectedEmails }) =>
 
     const toggleStarredEmail = async () => {
         // toggleStarredEmailService.call({ id: email._id, value: !email.starred });
-        const starredData = await axios.post(`http://localhost:5000/api/email/starred`, { id: email._id, value: !email.starred });
+        const starredData = await axios.post(`https://gmail-clone-backend-4s35.onrender.com/api/email/starred`, { id: email._id, value: !email.starred });
 
         setStarredEmail(prevState => !prevState);
     }

@@ -26,7 +26,7 @@ const [getEmailsService , setgetEmailsService] = useState([])
     }, [type, starredEmail])
     
     const getData = async ()=>{
-        const response = await axios.get(`http://localhost:5000/api/email/data/${type}`);
+        const response = await axios.get(`https://gmail-clone-backend-4s35.onrender.com/api/email/data/${type}`);
         console.log(response.data);
         setgetEmailsService(response.data)
         
@@ -45,12 +45,12 @@ const [getEmailsService , setgetEmailsService] = useState([])
     const deleteSelectedEmails = async () => {
         let ids = selectedEmails
         if (type === 'bin') {
-            const deleteData = await axios.patch(`http://localhost:5000/api/email/delete`, ids);
+            const deleteData = await axios.patch(`https://gmail-clone-backend-4s35.onrender.com/api/email/delete`, ids);
             console.log("deleteData");
 
             // deleteEmailsService.call(selectedEmails);
         } else {
-            const Bin = await axios.patch(`http://localhost:5000/api/email/bin`, ids);
+            const Bin = await axios.patch(`https://gmail-clone-backend-4s35.onrender.com/api/email/bin`, ids);
             console.log("Bin");
 
             // moveEmailsToBin.call(selectedEmails);
