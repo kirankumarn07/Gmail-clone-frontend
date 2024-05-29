@@ -6,6 +6,7 @@ import useApi from '../hooks/useApi';
 import { API_URLS } from "../services/api.urls";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../routes/routes";
+import axios from "axios";
 
 const Wrapper = styled(ListItem)`
     padding: 0 0 0 10px;
@@ -38,11 +39,14 @@ const Date = styled(Typography)({
 
 const Email = ({ email, setStarredEmail, selectedEmails, setSelectedEmails }) => {
     const toggleStarredEmailService = useApi(API_URLS.toggleStarredMails);
+    // console.log(selectedEmails);
     
     const navigate = useNavigate();
 
-    const toggleStarredEmail = () => {
-        toggleStarredEmailService.call({ id: email._id, value: !email.starred });
+    const toggleStarredEmail = async () => {
+        // toggleStarredEmailService.call({ id: email._id, value: !email.starred });
+        const starredData = await axios.post(`http://localhost:5000/api/email/starred`, { id: email._id, value: !email.starred });
+
         setStarredEmail(prevState => !prevState);
     }
 

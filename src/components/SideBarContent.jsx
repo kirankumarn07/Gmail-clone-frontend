@@ -48,6 +48,7 @@ const SideBarContent = () => {
                 <CreateOutlined style={{ marginRight: 10 }} />Compose
             </ComposeButton>
             <List>
+                
                 {
                     SIDEBAR_DATA.map(data => (
                         <NavLink key={data.name} to={`${routes.emails.path}/${data.name}`}>

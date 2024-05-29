@@ -20,7 +20,7 @@ export const API_URLS = {
         method: 'DELETE'
     },
     moveEmailsToBin: {
-        endpoint: 'bin',
-        method: 'POST'
+        endpoint: '/api/email/data/bin',
+        method: 'get'
     }
 }
